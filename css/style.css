@@ -1,0 +1,643 @@
+/* 
+ * WAITING FOR YOU - FRIENDSHIP EDITION
+ * Style Sheet
+ */
+
+/* =========================================
+   VARIABLES & SETUP
+   ========================================= */
+:root {
+  /* Main Colors */
+  --bg-primary: #FFF8F0;        /* Warm cream background */
+  --bg-secondary: #FFF0E5;      /* Soft peach sections */
+  --bg-card: #FFFFFF;           /* White cards */
+  
+  /* Accent Colors */
+  --color-primary: #FF9B50;     /* Warm orange */
+  --color-secondary: #FFBB70;   /* Soft gold */
+  --color-accent: #E25E3E;      /* Deep coral for emphasis */
+  --color-purple: #9B59B6;      /* Fun purple accent */
+  --color-teal: #45B7AA;        /* Fresh teal */
+  
+  /* Text Colors */
+  --text-dark: #2D2D2D;         /* Main text */
+  --text-medium: #5C5C5C;       /* Secondary text */
+  --text-light: #8B8B8B;        /* Subtle text */
+  --text-white: #FFFFFF;        /* White text */
+  
+  /* Gradients */
+  --gradient-1: linear-gradient(135deg, #FFF0E5 0%, #FFF8F0 100%);
+  --gradient-2: linear-gradient(135deg, #FF9B50 0%, #FFBB70 100%);
+  --gradient-fun: linear-gradient(135deg, #FF9B50 0%, #9B59B6 100%);
+  --gradient-celebrate: linear-gradient(135deg, #FFD700 0%, #FF9B50 50%, #E25E3E 100%);
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(255, 155, 80, 0.15);
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 20px rgba(255, 155, 80, 0.4);
+  
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  
+  /* Spacing */
+  --radius-card: 20px;
+  --radius-button: 50px;
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 155, 80, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 0 0 35px rgba(255, 155, 80, 0.6);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================
+   COMPONENTS
+   ========================================= */
+
+/* Floating Stars */
+.floating-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Reveal Animation Class */
+.reveal {
+  opacity: 0;
+}
+
+.reveal.active {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--gradient-1);
+  position: relative;
+  padding: 40px 0;
+}
+
+.friend-photo-container {
+  margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+.friend-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: var(--text-dark);
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  background: white;
+  padding: 15px 10px;
+  border-radius: 16px;
+  min-width: 80px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-light);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--text-medium);
+}
+
+.reunion-details {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 50px;
+}
+
+.reunion-details p {
+  margin: 5px 0;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  animation: bounce 2s infinite;
+  opacity: 0.7;
+}
+
+.scroll-indicator p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.scroll-indicator .arrow {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* Reunion Day Mode */
+.hero-section.celebrate {
+  background: var(--gradient-celebrate);
+}
+.hero-section.celebrate .hero-title, 
+.hero-section.celebrate .hero-subtitle,
+.hero-section.celebrate .label,
+.hero-section.celebrate .reunion-details,
+.hero-section.celebrate .scroll-indicator {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.hero-section.celebrate .countdown-container {
+  display: none;
+}
+.reunion-message.hidden {
+  display: none;
+}
+.reunion-message {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  margin-bottom: 40px;
+  animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reunion-title {
+  color: var(--color-accent);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+.reunion-subtitle {
+  color: var(--text-medium);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.hero-section.celebrate .friend-photo {
+  border-color: #FFD700;
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
+}
+
+/* =========================================
+   MESSAGE SECTION
+   ========================================= */
+.message-section {
+  padding: 80px 0;
+  background-color: var(--bg-secondary);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+}
+
+.section-header p {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.message-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.message-card::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 80px;
+  color: var(--bg-secondary);
+  font-family: serif;
+  line-height: 1;
+}
+
+.msg-greeting {
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+.msg-body {
+  white-space: pre-wrap; /* Preserve line breaks */
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+}
+
+.msg-footer {
+  text-align: right;
+}
+
+.msg-signature {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+/* =========================================
+   MEMORIES SECTION
+   ========================================= */
+.memories-section {
+  padding: 80px 0;
+  background-color: var(--bg-primary);
+}
+
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.memory-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.memory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.memory-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.memory-info {
+  padding: 15px 20px;
+}
+
+.memory-caption {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.memory-date {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* =========================================
+   REASONS SECTION
+   ========================================= */
+.reasons-section {
+  padding: 80px 0;
+  background-color: var(--bg-secondary);
+}
+
+.reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reason-card {
+  background: white;
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.3s ease;
+}
+
+.reason-card:hover {
+  transform: translateX(5px);
+}
+
+.reason-emoji {
+  font-size: 2rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+.reason-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* =========================================
+   FINAL SECTION
+   ========================================= */
+.final-section {
+  padding: 100px 0;
+  background: var(--gradient-1);
+  text-align: center;
+}
+
+.final-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.quote-box h2 {
+  font-size: 1.8rem;
+  color: var(--color-teal);
+  max-width: 500px;
+}
+
+.photos-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.circle-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: var(--shadow-soft);
+}
+
+.separator {
+  font-size: 2rem;
+}
+
+.final-names h3 {
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.final-names p {
+  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.final-closing {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-medium);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  background-color: white;
+}
+
+#footer-text {
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.footer-small {
+  margin-top: 10px;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  line-height: 0.5;
+}
+
+/* =========================================
+   LIGHTBOX
+   ========================================= */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+#lightbox-caption {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-lightbox:hover {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .number {
+    font-size: 1.8rem;
+  }
+  
+  .countdown-item {
+    min-width: 65px;
+    padding: 10px 5px;
+  }
+  
+  .friend-photo {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .message-card {
+    padding: 24px;
+  }
+  
+  .reason-card {
+    padding: 16px;
+  }
+  
+  .reason-text {
+    font-size: 1rem;
+  }
+}

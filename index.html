@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiting For You</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Meta/SEO -->
+    <meta name="description" content="A personal friendship website.">
+    <meta name="theme-color" content="#FFF8F0">
+</head>
+
+<body>
+
+    <!-- Floating Background Elements -->
+    <div id="floating-stars" class="floating-stars"></div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SECTION 1: HERO - COUNTDOWN -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="friend-photo-container">
+                        <img id="friend-photo" src="" alt="Best Friend" class="friend-photo">
+                    </div>
+
+                    <h1 id="hero-title" class="hero-title">Waiting for you...</h1>
+
+                    <!-- Countdown Container -->
+                    <div id="countdown-container" class="countdown-container">
+                        <div class="countdown-item">
+                            <span id="days" class="number">00</span>
+                            <span class="label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours" class="number">00</span>
+                            <span class="label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes" class="number">00</span>
+                            <span class="label">Mins</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds" class="number">00</span>
+                            <span class="label">Secs</span>
+                        </div>
+                    </div>
+
+                    <!-- Reunion Day Message (Hidden by default) -->
+                    <div id="reunion-message" class="reunion-message hidden">
+                        <h2 class="reunion-title"></h2>
+                        <p class="reunion-subtitle"></p>
+                        <p class="reunion-body"></p>
+                    </div>
+
+                    <div class="hero-footer">
+                        <p id="hero-subtitle" class="hero-subtitle">until we hang out again 🙌</p>
+                        <div class="reunion-details">
+                            <p class="reunion-place">📍 <span id="reunion-place">Loading...</span></p>
+                            <p class="reunion-date">📅 <span id="reunion-date-display">Loading...</span></p>
+                        </div>
+                    </div>
+
+                    <!-- <div class="scroll-indicator">
+                        <p>Scroll to see more</p>
+                        <div class="arrow">↓</div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: MESSAGE -->
+        <section id="message" class="message-section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2>✉️ A Message For You</h2>
+                </div>
+
+                <div class="message-card">
+                    <div class="message-content">
+                        <h2 id="msg-greeting" class="msg-greeting">Hey friend,</h2>
+                        <div id="msg-body" class="msg-body">
+                            <!-- Injected via JS -->
+                        </div>
+                        <div class="msg-footer">
+                            <p id="msg-closing" class="msg-closing">See you soon,</p>
+                            <p id="msg-signature" class="msg-signature">- Your friend</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: MEMORIES -->
+        <section id="memories" class="memories-section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2>📸 The Legendary Moments</h2>
+                    <p>"proof that we're awesome"</p>
+                </div>
+
+                <div id="memories-grid" class="memories-grid">
+                    <!-- Memories injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: REASONS -->
+        <section id="reasons" class="reasons-section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🙌 Things That Hit Different Now</h2>
+                    <p>"what I miss about us"</p>
+                </div>
+
+                <div id="reasons-list" class="reasons-list">
+                    <!-- Reasons injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: FINAL -->
+        <section id="final" class="final-section reveal">
+            <div class="container">
+                <div class="final-content">
+                    <div class="quote-box">
+                        <h2 id="final-quote">Distance doesn't matter when the friendship is real</h2>
+                    </div>
+
+                    <div class="final-photos">
+                        <!-- Option A: Side by Side -->
+                        <div class="photos-pair">
+                            <img id="creator-photo" class="circle-photo" src="" alt="Me">
+                            <span class="separator">🤝</span>
+                            <img id="friend-photo-final" class="circle-photo" src="" alt="Friend">
+                        </div>
+                    </div>
+
+                    <div class="final-names">
+                        <h3 id="names-display">Friend & Me</h3>
+                        <p>Best Friends 🤝</p>
+                    </div>
+
+                    <p class="final-closing">"See you soon, Vishaali"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <p id="footer-text">Made for my best friend ⭐</p>
+                <p class="footer-small">· · ·</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Confetti (Simple inline implementation or via script) -->
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
